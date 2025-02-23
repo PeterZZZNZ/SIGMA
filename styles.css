@@ -1,8 +1,12 @@
 :root {
-  --rich-black: #0A0A0C;  /* A softer, more sophisticated black */
-  --gold-accent: #D4AF37;  /* Luxurious gold */
+  --black: #000000;
+  --gold: #C9A227;
+  --dark-gray: #1C1C1C;
+  --charcoal: #2F2F2F;
+  --metallic-gold: #D4AF37;
+  --deep-red: #8B0000;
+  --dark-teal: #004D40;
   --cream: #F5F5F0;
-  --dark-gray: #1E1E24;
 }
 
 * {
@@ -12,7 +16,7 @@
 }
 
 body {
-  background-color: var(--rich-black);
+  background-color: var(--black);
   color: var(--cream);
   font-family: 'Cormorant Garant', serif;  /* More elegant serif font */
   line-height: 1.6;
@@ -25,19 +29,19 @@ body {
   top: 0;
   width: 100%;
   padding: 1.5rem 4rem;
-  background: rgba(10, 10, 12, 0.95);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.2);
 }
 
 .logo {
   font-size: 1.8rem;
   font-weight: 600;
-  color: var(--gold-accent);
+  color: var(--gold);
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -62,7 +66,7 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--gold-accent);
+  background: var(--gold);
   transition: width 0.3s ease;
 }
 
@@ -79,7 +83,7 @@ body {
   align-items: center;
   text-align: center;
   padding: 0 2rem;
-  background: linear-gradient(45deg, var(--rich-black), var(--dark-gray));
+  background: linear-gradient(45deg, var(--black), var(--dark-gray));
   position: relative;
   overflow: hidden;
 }
@@ -87,8 +91,8 @@ body {
 .hero-section h1 {
   font-size: 4rem;
   margin-bottom: 1rem;
-  color: var(--gold-accent);
-  text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  color: var(--gold);
+  text-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
 }
 
 .subtitle {
@@ -109,9 +113,9 @@ body {
   text-align: center;
 }
 
-.mission-section h2 {
+h2 {
   font-size: 2.5rem;
-  color: var(--gold-accent);
+  color: var(--gold);
   margin-bottom: 2rem;
   text-align: center;
 }
@@ -130,17 +134,17 @@ body {
   background: rgba(30, 30, 36, 0.5);
   padding: 2rem;
   border-radius: 10px;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(201, 162, 39, 0.2);
   transition: transform 0.3s ease;
 }
 
 .feature:hover {
   transform: translateY(-5px);
-  border-color: var(--gold-accent);
+  border-color: var(--gold);
 }
 
 .feature h3 {
-  color: var(--gold-accent);
+  color: var(--gold);
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
@@ -236,11 +240,11 @@ li:before {
     margin-top: 100px; /* To account for fixed navigation */
     padding: 4rem;
     min-height: 100vh;
-    background: var(--rich-black);
+    background: var(--black);
 }
 
 .content-section h1 {
-    color: var(--gold-accent);
+    color: var(--gold);
     text-align: center;
     margin-bottom: 3rem;
 }
@@ -257,11 +261,85 @@ li:before {
     background: rgba(30, 30, 36, 0.5);
     padding: 2rem;
     border-radius: 10px;
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(201, 162, 39, 0.2);
     transition: transform 0.3s ease;
 }
 
 .rule:hover, .example:hover {
     transform: translateY(-5px);
-    border-color: var(--gold-accent);
+    border-color: var(--gold);
+}
+
+/* Add these new styles for the Sigma Rules page */
+.rules-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.rule-card {
+    background: rgba(30, 30, 36, 0.5);
+    border: 1px solid rgba(201, 162, 39, 0.2);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.rule-card:hover {
+    border-color: var(--gold);
+}
+
+.rule-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rule-header:hover {
+    background: rgba(201, 162, 39, 0.1);
+}
+
+.rule-header h3 {
+    margin: 0;
+    color: var(--gold);
+    font-size: 1.2rem;
+}
+
+.expand-icon {
+    color: var(--gold);
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.rule-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 1.5rem;
+}
+
+.rule-card.active .rule-content {
+    padding: 0 1.5rem 1.5rem;
+}
+
+.rule-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--cream);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .rules-container {
+        padding: 1rem;
+    }
+    
+    .rule-header h3 {
+        font-size: 1.1rem;
+    }
 } 
